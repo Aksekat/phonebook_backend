@@ -10,10 +10,10 @@ app.use(cors())
 morgan.token('postData', function (req, res) {
     if (req.method === 'POST') { return JSON.stringify(req.body) }
     else {
-      return ' '
+        return ' '
     }
-  })
-  app.use(morgan(':method :url :status :res[content-length] - :response-time ms :postData'))
+})
+app.use(morgan(':method :url :status :res[content-length] - :response-time ms :postData'))
 
 let persons = [
     {
@@ -82,7 +82,7 @@ app.post('/api/persons', (request, response) => {
     }
 
     const person = {
-        id: String(Math.floor(Math.random()*10000)),
+        id: String(Math.floor(Math.random() * 10000)),
         name: body.name,
         number: body.number
     }
@@ -93,5 +93,5 @@ app.post('/api/persons', (request, response) => {
 
 const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`)
+    console.log(`Server running on port ${PORT}`)
 })
